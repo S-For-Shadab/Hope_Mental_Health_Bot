@@ -33,9 +33,9 @@ def clean(text):
     text = text.lower()
     return text 
 
-df_train = pd.read_csv('C:\\Users\\91915\\Desktop\\FYP\\chatbot\\chatpage\\train.txt', names=['Text', 'Emotion'], sep=';')
-df_val = pd.read_csv('C:\\Users\\91915\\Desktop\\FYP\\chatbot\\chatpage\\val.txt', names=['Text', 'Emotion'], sep=';')
-df_test = pd.read_csv('C:\\Users\\91915\\Desktop\\FYP\\chatbot\\chatpage\\test.txt', names=['Text', 'Emotion'], sep=';')
+df_train = pd.read_csv('app\\train.txt', names=['Text', 'Emotion'], sep=';')
+df_val = pd.read_csv('app\\val.txt', names=['Text', 'Emotion'], sep=';')
+df_test = pd.read_csv('app\\test.txt', names=['Text', 'Emotion'], sep=';')
 
 X_train = df_train['Text'].apply(clean)
 y_train = df_train['Emotion']
@@ -70,11 +70,11 @@ X_train = pad_sequences(sequences_train, maxlen=256, truncating='pre')
 X_test = pad_sequences(sequences_test, maxlen=256, truncating='pre')
 X_val = pad_sequences(sequences_val, maxlen=256, truncating='pre')
 
-model = load_model("C:\\Users\\91915\\Desktop\\FYP\\chatbot\\chatpage\\Emotion Recognition.h5")
+model = load_model("app\\Emotion Recognition.h5")
 
 tags = []
 
-with open('C:\\Users\\91915\\Desktop\\FYP\\chatbot\\chatpage\\train_dataset.json', 'r') as f:
+with open('app\\train_dataset.json', 'r') as f:
     train_intents = json.load(f)
 
 
