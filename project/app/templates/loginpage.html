@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+    
+    <style>
+        body {
+            background-color: #f1f1f1;
+          }
+          
+          .login-container {
+            width: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+          }
+          
+          form {
+            display: flex;
+            flex-direction: column;
+          }
+          
+          label {
+            font-weight: bold;
+            margin-bottom: 10px;
+          }
+          
+          input[type="text"], input[type="password"] {
+            padding: 12px 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+          }
+          
+          input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+          }
+          
+          input[type="submit"]:hover {
+            background-color: #45a049;
+          }
+          .belowform {
+            margin-top:2rem;
+          }
+    </style>
+   </head>
+  <body>
+    <div class="login-container">
+      <form method="post" action="">
+        {% csrf_token %}
+        <h1>Login</h1>
+        <label for="Email Id">Email Id:</label>
+        <input type="text" id="username" name="emailId">
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <br>
+        <input type="submit" value="Submit">
+      </form>
+     <hr>
+     <form method="post" action="../registerpage/">
+      {% csrf_token %}
+
+      <button type="submit" value="Submit">create account</button>
+     </form>
+
+      
+    </div>
+  </body>
+</html>
